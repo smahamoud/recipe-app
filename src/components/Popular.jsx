@@ -15,10 +15,20 @@ function Popular() {
 
 
     const getPopular = async () => {
-        const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY_C}&number=9`);
+
+      const check = localStorage.getItem('popular')
+      if(check){
+        setPopular(JSON.parse(check));
+      }else{
+        const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY_C}&number=9`
+        );
+
         const data = await api.json();
-        setPopular(data.recipes)
-        console.log(data.recipes)
+
+        localStorage.setItem('popular', JSON.stringify(data.recipes));
+        setPopular(data.recipes);
+        console.log(data.recipes);
+      }
     };
 
 
@@ -26,8 +36,6 @@ function Popular() {
 
   return (
     <div>
-
- 
           <Wrapper>
             <h3>Popular Picks</h3>
             <Splide
@@ -65,13 +73,14 @@ margin: 4rem 0rem;
 `;
 
 const Card = styled.div`
-min-height: 25rem
-border-radius: 2rem
+min-height: 25rem;
+border-radius: 2rem;
+overflow: hidden;
 
 
 
 img {
-  border-radius: 3rem;
+  border-radius: 2rem;
   position: absolute;
   left: 0;
   width: 100%;
@@ -79,10 +88,11 @@ img {
   object-fit: cover;
 
 }
+
 p{
   position: absolute;
   z-index: 10;
-  left: 40%;
+  left: 0%;
   bottom: 0%;
   transform: translate (-50%, 0%);
   color: white;
@@ -96,6 +106,7 @@ p{
   align-items: center;
 
 
+
 }
 `;
 
@@ -104,6 +115,7 @@ Z-index: 3;
 position: absolute;
 width: 100%;
 height: 100%;
-background: linear-gradient (rgba (0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+border-radius: 2rem;
 `;
 export default Popular
