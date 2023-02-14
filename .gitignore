@@ -13,8 +13,7 @@
 
 # misc
 .DS_Store
-.env.REACT_APP_API_KEY=7ee9c965fbe74fccae7c71ef9a9846e8
-.env.REACT_APP_API_KEY_C=bcb86299bacd4886ae12f78e45566f5a
+
 .env.local
 .env.development.local
 .env.test.local
