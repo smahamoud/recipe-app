@@ -14,9 +14,12 @@
     "react-router-dom": "^6.8.0",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.6",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "homepage": "https://smahamoud.github.io/recipe-app/"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build", 
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -40,4 +43,5 @@
       "last 1 safari version"
     ]
   }
+  
 }
