@@ -1,6 +1,7 @@
 # React Recipe App
 
 A React application on delicious recipe ideas.
+-Used tailwind
 
 Click [Here](https://github.com/smahamoud/recipe-app) to view the application
 
